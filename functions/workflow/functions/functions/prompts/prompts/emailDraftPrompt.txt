@@ -1,0 +1,8 @@
+Write a professional but friendly follow-up email.
+Context:
+- Lead name: {{name}}
+- Company: {{company}}
+- Problem: {{message}}
+- Source: {{source}}
+
+Keep it concise and personalized.

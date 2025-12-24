@@ -1,0 +1,14 @@
+Analyze the following lead message and:
+1. Score intent from 1–10
+2. Classify as High / Medium / Low
+3. Extract buying signals
+
+Lead Message:
+{{message}}
+
+Respond strictly in JSON:
+{
+  "score": number,
+  "intent": "High | Medium | Low",
+  "reason": "short explanation"
+}

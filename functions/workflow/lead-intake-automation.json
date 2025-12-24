@@ -1,0 +1,42 @@
+{
+  "name": "AI Lead Intake Automation",
+  "nodes": [
+    {
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "parameters": {
+        "path": "lead-intake",
+        "httpMethod": "POST"
+      }
+    },
+    {
+      "name": "Normalize Lead",
+      "type": "n8n-nodes-base.function",
+      "parameters": {
+        "functionCode": "return [{ json: require('../functions/normalizeLead')($json) }];"
+      }
+    },
+    {
+      "name": "Validate Lead",
+      "type": "n8n-nodes-base.function",
+      "parameters": {
+        "functionCode": "return [{ json: require('../functions/validateLead')($json) }];"
+      }
+    },
+    {
+      "name": "Check Duplicate",
+      "type": "n8n-nodes-base.function",
+      "parameters": {
+        "functionCode": "return [{ json: require('../functions/deduplicateLead')($json) }];"
+      }
+    },
+    {
+      "name": "OpenAI Lead Scoring",
+      "type": "n8n-nodes-base.openAi",
+      "parameters": {
+        "model": "gpt-4",
+        "prompt": "={{$json.prompt}}"
+      }
+    }
+  ]
+}

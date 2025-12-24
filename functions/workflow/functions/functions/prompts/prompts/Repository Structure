@@ -1,0 +1,14 @@
+ai-lead-automation-n8n/
+│
+├── README.md
+├── workflow/
+│   └── lead-intake-automation.json
+├── functions/
+│   ├── normalizeLead.js
+│   ├── validateLead.js
+│   └── deduplicateLead.js
+├── prompts/
+│   ├── leadScoringPrompt.txt
+│   └── emailDraftPrompt.txt
+└── diagrams/
+    └── workflow-architecture.png
